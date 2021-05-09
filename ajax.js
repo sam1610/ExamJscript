@@ -9,6 +9,8 @@ function ajax(url, flux, rappel, method) {
         r.setRequestHeader("Content-Type", 
                            "application/x-www-form-urlencoded; ");
     r.send(flux);
+
+
     return true;
   }
 
