@@ -1,6 +1,29 @@
 <?php 
+include '../../TD/3/saisie_fiable.php';
 //   get the file 
+$jour = saisie_fiable($_POST, 'jour', RE_JOUR);
+$fin = saisie_fiable($_POST, 'fin',  RE_HEURE);
+$debut = saisie_fiable($_POST, 'debut', RE_HEURE);
+$file = empty($_FILES['ICS']['tmp_name']) ? '' :
+   is_readable($_FILES['ICS']['tmp_name']);
+
+
+if(!jour){
+    setcookie("jour", "erreur")
+};
+if(!fin){
+    setcookie("fin", "erreur")
+};
+if(!debut){
+    setcookie("debut", "erreur")
+};
+if(!file){
+    setcookie("file", "erreur")
+};
+
+
 $str = file_get_contents('creneau.html');
+
 
 
 $replacement="<style>.erreur {border:2px dashed red}</style>";
